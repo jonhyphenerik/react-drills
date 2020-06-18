@@ -1,26 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      unfilteredArray: [],
+      filteredArray: []
+    }
+  }
+
+  filterOdds(arr){
+  return arr.filter(n=>!n%2)
+  }
+
+  handleChange(value){
+    this.setState({filtered})
+  }
+  render(){
+    return (
+      <div className="App">
+        <h2>filtered array</h2>
+        <h3>{this.state.filteredArray}</h3>
+        <input onChange={e=>this.inputHandling(e.target.value)}/>
+        <button onClick={this.setState({filteredArray: this.filterOdds(this.state.unfilteredArray)})}>Click to Filter</button>
+      </div>
+    );
+  }
 }
+
 
 export default App;
